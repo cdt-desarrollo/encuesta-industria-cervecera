@@ -1,0 +1,67 @@
+/* Mobile devices – 320px — 480px.
+iPads, Tablets – 481px — 768px.
+Small screens, laptops – 769px — 1024px.
+Desktops, large screens – 1025px — 1200px.
+Extra large screens, TV – 1201px, and more. */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+h1{
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+
+h5{
+  padding-top: 30px;
+  padding-bottom: 5px;
+}
+
+td{
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+th{
+  width: 70%;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+/* phones */
+@media only screen and (max-width: 600px ) {
+  .container-fluid{
+    width: 400px;
+  }
+}
+
+/* portrait tables and large phones */
+@media only screen and (min-width: 600px ) {
+  .container-fluid{
+    width: 500px;
+  }
+}
+
+/* landscape tables  */
+@media only screen and (min-width: 768px ) {
+  .container-fluid{
+      width: 600px;
+  }
+}
+
+/* laptops and desktops */
+@media only screen and (min-width: 992px ) {
+  .container-fluid{
+      width: 800px;
+  }
+}
+
+/* large laptops and desktops */
+@media only screen and (min-width: 1200px ) {
+  .container-fluid{
+    width: 1000px;
+  }
+}
