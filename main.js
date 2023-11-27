@@ -93,7 +93,8 @@ function validateInformation(array){
     Swal.fire({
       icon: "error",
       title: "Faltan preguntas por responder",
-      confirmButtonColor: "#3085d6"
+      confirmButtonColor: "#3085d6",
+      footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
     })
     q10 = []
     responses = []
@@ -104,7 +105,8 @@ function validateInformation(array){
       Swal.fire({
         icon: "error",
         title: "Falta el nombre de la empresa",
-        confirmButtonColor: "#3085d6"
+        confirmButtonColor: "#3085d6",
+        footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q10 = []
       responses = []
@@ -113,7 +115,8 @@ function validateInformation(array){
       Swal.fire({
         icon: "error",
         title: "Faltan datos en pregunta 1 o 2",
-        confirmButtonColor: "#3085d6"
+        confirmButtonColor: "#3085d6",
+        footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q10 = []
       responses = []
@@ -122,7 +125,8 @@ function validateInformation(array){
       Swal.fire({
         icon: "error",
         title: "Faltan datos en pregunta 5",
-        confirmButtonColor: "#3085d6"
+        confirmButtonColor: "#3085d6",
+        footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q10 = []
       responses = []
@@ -131,7 +135,8 @@ function validateInformation(array){
       Swal.fire({
         icon: "error",
         title: "Faltan datos en pregunta 10",
-        confirmButtonColor: "#3085d6"
+        confirmButtonColor: "#3085d6",
+        footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q10 = []
       responses = []
@@ -235,7 +240,8 @@ function sendData(array) {
         Swal.fire({
           icon: "error",
           title: "Error",
-          confirmButtonColor: "#3085d6"
+          confirmButtonColor: "#3085d6",
+          footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
         })
       });
 }
