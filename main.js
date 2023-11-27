@@ -1,77 +1,191 @@
-function getValues() {
-  var data = [];
-  var ele = document.getElementsByTagName("input");
-  var companyName = document.getElementById("companyName").value;
-  var staffName = document.getElementById("staffName").value;
-  var email = document.getElementById("email").value;
-  var phone = document.getElementById("phone").value;
-  for (i = 0; i < ele.length; i++) {
-    if ((ele[i].type == "radio" || "text")) {
-      if (ele[i].checked) {
-        data.push(ele[i].value);
-      }
+// var personalInformation = []
+// var q1 = []
+// var q2 = []
+// var q3 = [] 
+// var q4 = [] 
+// var q5 = [] 
+// var q6 = [] 
+// var q7 = [] 
+// var q8 = [] 
+// var q9 = [] 
+var q10 = [] 
+// var q11 = [] 
+// var q12 = [] 
+var responses = []
+function getValues(){
+  prePersonalInformation = Array.from(document.getElementsByName("personalInformation"))
+  for(i = 0; i <= prePersonalInformation.length - 1; i++){
+    responses.push(prePersonalInformation[i].value)
+  }
+  preQ1 = Array.from(document.getElementsByName("q1"))
+  for(i = 0; i <= preQ1.length - 1; i++){
+    responses.push(preQ1[i].value)
+  }
+  preQ2 = Array.from(document.getElementsByName("q2"))
+  for(i = 0; i <= preQ2.length - 1; i++){
+    responses.push(preQ2[i].value)
+  }
+  preQ3 = Array.from(document.getElementsByName("q3"))
+  for(i = 0; i <= preQ3.length - 1; i++){
+    if(preQ3[i].checked == true){
+      responses.push(preQ3[i].value)
     }
   }
-  data.push(companyName, staffName, email, phone)
-  console.log(data)
-  if(data.length == 21){
-    if(data[18] == "")
-    {
-      Swal.fire({
-        icon: "info",
-        title: "Falta que escribas el nombre de tu empresa",
-        confirmButtonColor: "#3085d6"
-      })
-    }
-    else if(data[18] != "")
-    {
-      Swal.fire({
-        position: "center",
-        title: "Enviando información",
-        showConfirmButton: false,
-        didOpen: () => {
-          Swal.showLoading();
-        },
-      });
-      sendData(data)
+  preQ4 = Array.from(document.getElementsByName("q4"))
+  for(i = 0; i <= preQ4.length - 1; i++){
+    if(preQ4[i].checked == true){
+      responses.push(preQ4[i].value)
     }
   }
-  else {
+  preQ5 = Array.from(document.getElementsByName("q5"))
+  for(i = 0; i <= preQ5.length - 1; i++){
+    responses.push(preQ5[i].value)
+  }
+  preQ6 = Array.from(document.getElementsByName("q6"))
+  for(i = 0; i <= preQ6.length - 1; i++){
+    if(preQ6[i].checked == true){
+      responses.push(preQ6[i].value)
+    }
+  }
+  preQ7 = Array.from(document.getElementsByName("q7"))
+  for(i = 0; i <= preQ7.length - 1; i++){
+    if(preQ7[i].checked == true){
+      responses.push(preQ7[i].value)
+    }
+  }
+  preQ8 = Array.from(document.getElementsByName("q8"))
+  for(i = 0; i <= preQ8.length - 1; i++){
+    if(preQ8[i].checked == true){
+      responses.push(preQ8[i].value)
+    }
+  }
+  preQ9 = Array.from(document.getElementsByName("q9"))
+  for(i = 0; i <= preQ9.length - 1; i++){
+    if(preQ9[i].checked == true){
+      responses.push(preQ9[i].value)
+    }
+  }
+  preQ10 = Array.from(document.getElementsByName("q10"))
+  for(i = 0; i <= preQ10.length - 1; i++){
+    if(preQ10[i].checked == true){
+      q10.push(preQ10[i].value)
+    }
+  }
+  responses.push(q10)
+  preQ11 = Array.from(document.getElementsByName("q11"))
+  for(i = 0; i <= preQ11.length - 1; i++){
+    if(preQ11[i].checked == true){
+      responses.push(preQ11[i].value)
+    }
+  }
+  preQ12 = Array.from(document.getElementsByName("q12"))
+  for(i = 0; i <= preQ12.length - 1; i++){
+    if(preQ12[i].checked == true){
+      responses.push(preQ12[i].value)
+    }
+  }
+  console.log(responses)
+  validateInformation(responses)
+  }
+function validateInformation(array){
+  // Error
+  if(array.length < 36){
     Swal.fire({
       icon: "error",
-      title: "Faltan respuestas por contestar o que agregues el nombre de tu empresa",
+      title: "Faltan preguntas por responder",
       confirmButtonColor: "#3085d6"
     })
+    q10 = []
+    responses = []
+  }
+  else if(array.length == 36){
+    // Error
+    if (array[1] == ""){
+      Swal.fire({
+        icon: "error",
+        title: "Falta el nombre de la empresa",
+        confirmButtonColor: "#3085d6"
+      })
+      q10 = []
+      responses = []
+    }
+    else if(array[4] == "" || array[6] == "" || array[8] == "" || array[10] == "" || array[12] == "" || array[14] == "" || array[16] == "" || array[18] == "" || array[20] == "" || array[22] == ""){
+      Swal.fire({
+        icon: "error",
+        title: "Faltan datos en pregunta 1 o 2",
+        confirmButtonColor: "#3085d6"
+      })
+      q10 = []
+      responses = []
+    }
+    else if(array[26] == "" || array[27] == "" || array[28] == ""){
+      Swal.fire({
+        icon: "error",
+        title: "Faltan datos en pregunta 5",
+        confirmButtonColor: "#3085d6"
+      })
+      q10 = []
+      responses = []
+    }
+    else if(array[33] == "" || array[33] == []){
+      Swal.fire({
+        icon: "error",
+        title: "Faltan datos en pregunta 10",
+        confirmButtonColor: "#3085d6"
+      })
+      q10 = []
+      responses = []
+    }
+    // Todo en orden
+    else {
+      Swal.showLoading();
+      sendData(array)
+    }
   }
 }
 function sendData(array) {
     var data = JSON.stringify({
-      q1: `${array[0]}`,
-      q2: `${array[1]}`,
-      q3: `${array[2]}`,
-      q4: `${array[3]}`,
-      q5: `${array[4]}`,
-      q6: `${array[5]}`,
-      q7: `${array[6]}`,
-      q8: `${array[7]}`,
-      q9: `${array[8]}`,
-      q10: `${array[9]}`,
-      q11: `${array[10]}`,
-      q12: `${array[11]}`,
-      q13: `${array[12]}`,
-      q14: `${array[13]}`,
-      q15: `${array[14]}`,
-      q16: `${array[15]}`,
-      q17: `${array[16]}`,
-      name: `${array[17]}`,
-      company: `${array[18]}`,
-      email: `${array[19]}`,
-      phone: `${array[20]}`
+      nombre: `${array[0]}`,
+      empresa: `${array[1]}`,
+      correo: `${array[2]}`,
+      telefono: `${array[3]}`,
+      q1o1Nacional: `${array[4]}`,
+      q1o1Internacional: `${array[5]}`,
+      q1o2Nacional: `${array[6]}`,
+      q1o2Internacional: `${array[7]}`,
+      q1o3Nacional: `${array[8]}`,
+      q1o3Internacional: `${array[9]}`,
+      q1o4Nacional: `${array[10]}`,
+      q1o4Internacional: `${array[11]}`,
+      q1o5Nacional: `${array[12]}`,
+      q1o5Internacional: `${array[13]}`,
+      q2o1Nacional: `${array[14]}`,
+      q2o1Internacional: `${array[15]}`,
+      q2o2Nacional: `${array[16]}`,
+      q2o2Internacional: `${array[17]}`,
+      q2o3Nacional: `${array[18]}`,
+      q2o3Internacional: `${array[19]}`,
+      q2o4Nacional: `${array[20]}`,
+      q2o4Internacional: `${array[21]}`,
+      q2o5Nacional: `${array[22]}`,
+      q2o5Internacional: `${array[23]}`,
+      q3: `${array[24]}`,
+      q4: `${array[25]}`,
+      q5Local: `${array[26]}`,
+      q5Nacional: `${array[27]}`,
+      q5Exportacion: `${array[28]}`,
+      q6: `${array[29]}`,
+      q7: `${array[30]}`,
+      q8: `${array[31]}`,
+      q9: `${array[32]}`,
+      q10: `${array[33]}`,
+      q11: `${array[34]}`,
+      q12: `${array[35]}`,
     });
     // sheet.best
     var config = {
       method: "post",
-      url: "https://sheet.best/api/sheets/32aacf91-902e-4e88-8d70-e596b2f41ceb/tabs/trim22023",
+      url: "https://sheet.best/api/sheets/32aacf91-902e-4e88-8d70-e596b2f41ceb/tabs/industria-cervecera",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
@@ -120,95 +234,223 @@ function sendData(array) {
         // };
         Swal.fire({
           icon: "error",
-          title: "Falta escribir el nombre de tu empresa",
+          title: "Error",
           confirmButtonColor: "#3085d6"
         })
       });
 }
-function a100Malta(quantity){
-  to100 = 100 - quantity
-  document.getElementById("q1MaltaInternacional").value = to100
+function to100(input){
+  if(input.value > 100){
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "¡No puede ser mayor a 100!",
+    });
+    input.value = ""
+  }
+  else if(input.value < 0){
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "¡No puede ser menor a 0!",
+    });
+    input.value = ""
+  }
 }
-function a100Cebada(quantity){
-  to100 = 100 - quantity
-  document.getElementById("q1CebadaInternacional").value = to100
+function a100Malta(input){
+  to100(input)
+  total = 100 - input.value
+  if(input.id == "q1o1"){
+    document.getElementById("q1o1Internacional").value = total.toFixed(2)
+  }
+  else if(input.id == "q2o1"){
+    document.getElementById("q2o1Importada").value = total.toFixed(2)
+  }
 }
-function a100FeculasAlmidonesDerivados(quantity){
-  to100 = 100 - quantity
-  document.getElementById("q1FeculasAlmidonesDerivadosInternacional").value = to100
+function a100Cebada(input){
+  to100(input)
+  total = 100 - input.value
+  if(input.id == "q1o2"){
+    document.getElementById("q1o2Internacional").value = total.toFixed(2)
+  }
+  else if(input.id == "q2o2"){
+    document.getElementById("q2o2Importada").value = total.toFixed(2)
+  }
 }
-function a100MaquinariaEquipo(quantity){
-  to100 = 100 - quantity
-  document.getElementById("q1MaquinariaEquipoInternacional").value = to100
+function a100FeculasAlmidonesDerivados(input){
+  to100(input)
+  total = 100 - input.value
+  if(input.id == "q1o3"){
+    document.getElementById("q1o3Internacional").value = total.toFixed(2)
+  }
+  else if(input.id == "q2o3"){
+    document.getElementById("q2o3Importada").value = total.toFixed(2)
+  }
 }
-function a100EnvasesAmpolletas(quantity){
-  to100 = 100 - quantity
-  document.getElementById("q1EnvasesAmpolletasInternacional").value = to100
+function a100MaquinariaEquipo(input){
+  to100(input)
+  total = 100 - input.value
+  if(input.id == "q1o4"){
+    document.getElementById("q1o4Internacional").value = total.toFixed(2)
+  }
+  else if(input.id == "q2o4"){
+    document.getElementById("q2o4Importada").value = total.toFixed(2)
+  }
+}
+function a100EnvasesAmpolletas(input){
+  to100(input)
+  total = 100 - input.value
+  if(input.id == "q1o5"){
+    document.getElementById("q1o5Internacional").value = total.toFixed(2)
+  }
+  else if(input.id == "q2o5"){
+    document.getElementById("q2o5Importada").value = total.toFixed(2)
+  }
 }
 function disabledInputsQ2(x){
   if(x.checked == true){
-    document.getElementById("q2MaltaProducto").value = 0
-    document.getElementById("q2MaltaNacional").value = 0
-    document.getElementById("q2MaltaImportada").value = 0
-    document.getElementById("q2CebadaProducto").value = 0
-    document.getElementById("q2CebadaNacional").value = 0
-    document.getElementById("q2CebadaImportada").value = 0
-    document.getElementById("q2FeculasAlmidonesDerivadosProducto").value = 0
-    document.getElementById("q2FeculasAlmidonesDerivadosNacional").value = 0
-    document.getElementById("q2FeculasAlmidonesDerivadosImportada").value = 0
-    document.getElementById("q2MaquinariaEquipoProducto").value = 0
-    document.getElementById("q2MaquinariaEquipoNacional").value = 0
-    document.getElementById("q2MaquinariaEquipoImportada").value = 0
-    document.getElementById("q2EnvasesAmpolletasProducto").value = 0
-    document.getElementById("q2EnvasesAmpolletasNacional").value = 0
-    document.getElementById("q2EnvasesAmpolletasImportada").value = 0
-    document.getElementById("q2MaltaProducto").disabled = true
-    document.getElementById("q2MaltaNacional").disabled = true
-    document.getElementById("q2MaltaImportada").disabled = true
-    document.getElementById("q2CebadaProducto").disabled = true
-    document.getElementById("q2CebadaNacional").disabled = true
-    document.getElementById("q2CebadaImportada").disabled = true
-    document.getElementById("q2FeculasAlmidonesDerivadosProducto").disabled = true
-    document.getElementById("q2FeculasAlmidonesDerivadosNacional").disabled = true
-    document.getElementById("q2FeculasAlmidonesDerivadosImportada").disabled = true
-    document.getElementById("q2MaquinariaEquipoProducto").disabled = true
-    document.getElementById("q2MaquinariaEquipoNacional").disabled = true
-    document.getElementById("q2MaquinariaEquipoImportada").disabled = true
-    document.getElementById("q2EnvasesAmpolletasProducto").disabled = true
-    document.getElementById("q2EnvasesAmpolletasNacional").disabled = true
-    document.getElementById("q2EnvasesAmpolletasImportada").disabled = true
+    document.getElementById("q2o1").value = 0
+    document.getElementById("q2o1Importada").value = 0
+    document.getElementById("q2o2").value = 0
+    document.getElementById("q2o2Importada").value = 0
+    document.getElementById("q2o3").value = 0
+    document.getElementById("q2o3Importada").value = 0
+    document.getElementById("q2o4").value = 0
+    document.getElementById("q2o4Importada").value = 0
+    document.getElementById("q2o5").value = 0
+    document.getElementById("q2o5Importada").value = 0
+    document.getElementById("q2o1").disabled = true
+    document.getElementById("q2o2").disabled = true
+    document.getElementById("q2o3").disabled = true
+    document.getElementById("q2o4").disabled = true
+    document.getElementById("q2o5").disabled = true
 
   }
   else{
-    document.getElementById("q2MaltaProducto").value = ""
-    document.getElementById("q2MaltaNacional").value = ""
-    document.getElementById("q2MaltaImportada").value = ""
-    document.getElementById("q2CebadaProducto").value = ""
-    document.getElementById("q2CebadaNacional").value = ""
-    document.getElementById("q2CebadaImportada").value = ""
-    document.getElementById("q2FeculasAlmidonesDerivadosProducto").value = ""
-    document.getElementById("q2FeculasAlmidonesDerivadosNacional").value = ""
-    document.getElementById("q2FeculasAlmidonesDerivadosImportada").value = ""
-    document.getElementById("q2MaquinariaEquipoProducto").value = ""
-    document.getElementById("q2MaquinariaEquipoNacional").value = ""
-    document.getElementById("q2MaquinariaEquipoImportada").value = ""
-    document.getElementById("q2EnvasesAmpolletasProducto").value = ""
-    document.getElementById("q2EnvasesAmpolletasNacional").value = ""
-    document.getElementById("q2EnvasesAmpolletasImportada").value = ""
-    document.getElementById("q2MaltaProducto").disabled = false
-    document.getElementById("q2MaltaNacional").disabled = false
-    document.getElementById("q2MaltaImportada").disabled = false
-    document.getElementById("q2CebadaProducto").disabled = false
-    document.getElementById("q2CebadaNacional").disabled = false
-    document.getElementById("q2CebadaImportada").disabled = false
-    document.getElementById("q2FeculasAlmidonesDerivadosProducto").disabled = false
-    document.getElementById("q2FeculasAlmidonesDerivadosNacional").disabled = false
-    document.getElementById("q2FeculasAlmidonesDerivadosImportada").disabled = false
-    document.getElementById("q2MaquinariaEquipoProducto").disabled = false
-    document.getElementById("q2MaquinariaEquipoNacional").disabled = false
-    document.getElementById("q2MaquinariaEquipoImportada").disabled = false
-    document.getElementById("q2EnvasesAmpolletasProducto").disabled = false
-    document.getElementById("q2EnvasesAmpolletasNacional").disabled = false
-    document.getElementById("q2EnvasesAmpolletasImportada").disabled = false
+    document.getElementById("q2o1").value = ""
+    document.getElementById("q2o1Importada").value = 100
+    document.getElementById("q2o2").value = ""
+    document.getElementById("q2o2Importada").value = 100
+    document.getElementById("q2o3").value = ""
+    document.getElementById("q2o3Importada").value = 100
+    document.getElementById("q2o4").value = ""
+    document.getElementById("q2o4Importada").value = 100
+    document.getElementById("q2o5").value = ""
+    document.getElementById("q2o5Importada").value = 100
+    document.getElementById("q2o1").disabled = false
+    document.getElementById("q2o2").disabled = false
+    document.getElementById("q2o3").disabled = false
+    document.getElementById("q2o4").disabled = false
+    document.getElementById("q2o5").disabled = false
   }
 }
+function calcularConsumoNacional(input){
+  q5o2 = document.getElementById("q5o2")
+  q5o3 = document.getElementById("q5o3")
+  if(input.value > 100){
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "¡No puede ser mayor a 100!",
+    });
+    input.value = ""
+    q5o2.value = ""
+    q5o3.value = ""
+  }
+  if(input.value == 100){
+    q5o2.value = 0
+    q5o2.disabled = true
+    q5o3.value = 0
+  }
+  else if(input.value < 0){
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "¡No puede ser menor a 0!",
+    });
+    input.value = ""
+    q5o2.value = ""
+    q5o3.value = ""
+  }
+  else if(input.value > 0 && input.value < 100){
+    total = 100.00
+    if(parseInt(input.value) == total){
+      q5o2.value = ""
+      q5o3.value = "" 
+      q5o2.disabled = true
+    }
+    else{
+      q5o3.value = 0
+      restante = total - parseFloat(input.value)
+      q5o2.value = restante.toFixed(2)
+      q5o2.disabled = false
+    }
+  }
+}
+function calcularConsumoImportado(input){
+  q5o1 = document.getElementById("q5o1")
+  q5o3 = document.getElementById("q5o3")
+  if(parseFloat(input.value) + parseFloat(q5o1.value) == 100){
+    q5o3.value = ""
+  }
+  else{
+    q5o3.value = ""
+    restante = 100.00 - (parseFloat(q5o1.value) + parseFloat(input.value))
+    if (restante > 100.00){
+      input.value = ""
+      q5o3.value = ""
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "¡El total no puede ser mayor a 100!",
+      });
+      input.value = ""
+      q5o1.value = ""
+      q5o3.value = ""
+    }
+    else if(restante < 0){
+      q5o3.value = ""
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "¡El total no puede ser mayor a 100!",
+      });
+      input.value = ""
+      q5o1.value = ""
+      q5o3.value = ""
+    }
+    else if(restante > 0 && restante < 100){
+      q5o3.value = restante.toFixed(2)
+    }
+  }
+}
+// function agregarAlArregloQ10(){
+//   q10o1 = document.getElementById("q10o1")
+//   q10o2 = document.getElementById("q10o2")
+//   q10o3 = document.getElementById("q10o3")
+//   q10o4 = document.getElementById("q10o4")
+//   let arrayQ10 =[]
+//   for(let i = 0; i<=3; i++){
+//     if(i == 0){
+//       if(q10o1.checked == true && i == 0){
+//         arrayQ10.push(q10o1.value)
+//       }
+//     }
+//     else if(i == 1){
+//       if(q10o2.checked == true && i == 1){
+//         arrayQ10.push(q10o2.value)
+//       }
+//     }
+//     else if(i == 2){
+//       if(q10o3.checked == true && i == 2){
+//         arrayQ10.push(q10o3.value)
+//       }
+//     }
+//     else if(i == 3){
+//       if(q10o4.checked == true && i == 3){
+//         arrayQ10.push(q10o4.value)
+//       }
+//     }
+//   }
+//   q10 = arrayQ10.toString()
+// }
