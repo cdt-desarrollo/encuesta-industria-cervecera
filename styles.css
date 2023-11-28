@@ -36,6 +36,9 @@ th{
   .container-fluid{
     width: 400px;
   }
+  .logos{
+    width: max-content;
+  }
 }
 
 /* portrait tables and large phones */

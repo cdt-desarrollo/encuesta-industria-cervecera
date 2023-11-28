@@ -8,8 +8,8 @@
 // var q7 = [] 
 // var q8 = [] 
 // var q9 = [] 
-var q10 = []
-var q6 = []
+var q5 = []
+var q9 = []
 // var q11 = [] 
 // var q12 = [] 
 var responses = []
@@ -22,9 +22,15 @@ function getValues(){
   for(i = 0; i <= preQ1.length - 1; i++){
     responses.push(preQ1[i].value)
   }
+  // preQ2 = Array.from(document.getElementsByName("q2"))
+  // for(i = 0; i <= preQ2.length - 1; i++){
+  //   responses.push(preQ2[i].value)
+  // }
   preQ2 = Array.from(document.getElementsByName("q2"))
   for(i = 0; i <= preQ2.length - 1; i++){
-    responses.push(preQ2[i].value)
+    if(preQ2[i].checked == true){
+      responses.push(preQ2[i].value)
+    }
   }
   preQ3 = Array.from(document.getElementsByName("q3"))
   for(i = 0; i <= preQ3.length - 1; i++){
@@ -34,21 +40,21 @@ function getValues(){
   }
   preQ4 = Array.from(document.getElementsByName("q4"))
   for(i = 0; i <= preQ4.length - 1; i++){
-    if(preQ4[i].checked == true){
-      responses.push(preQ4[i].value)
-    }
+    responses.push(preQ4[i].value)
   }
   preQ5 = Array.from(document.getElementsByName("q5"))
   for(i = 0; i <= preQ5.length - 1; i++){
-    responses.push(preQ5[i].value)
+    if(preQ5[i].checked == true){
+      q5.push(preQ5[i].value)
+    }
   }
+  responses.push(q5)
   preQ6 = Array.from(document.getElementsByName("q6"))
   for(i = 0; i <= preQ6.length - 1; i++){
     if(preQ6[i].checked == true){
-      q6.push(preQ6[i].value)
+      responses.push(preQ6[i].value)
     }
   }
-  responses.push(q6)
   preQ7 = Array.from(document.getElementsByName("q7"))
   for(i = 0; i <= preQ7.length - 1; i++){
     if(preQ7[i].checked == true){
@@ -64,45 +70,39 @@ function getValues(){
   preQ9 = Array.from(document.getElementsByName("q9"))
   for(i = 0; i <= preQ9.length - 1; i++){
     if(preQ9[i].checked == true){
-      responses.push(preQ9[i].value)
+      q9.push(preQ9[i].value)
     }
   }
+  responses.push(q9)
   preQ10 = Array.from(document.getElementsByName("q10"))
   for(i = 0; i <= preQ10.length - 1; i++){
     if(preQ10[i].checked == true){
-      q10.push(preQ10[i].value)
+      responses.push(preQ10[i].value)
     }
   }
-  responses.push(q10)
   preQ11 = Array.from(document.getElementsByName("q11"))
   for(i = 0; i <= preQ11.length - 1; i++){
     if(preQ11[i].checked == true){
       responses.push(preQ11[i].value)
     }
   }
-  preQ12 = Array.from(document.getElementsByName("q12"))
-  for(i = 0; i <= preQ12.length - 1; i++){
-    if(preQ12[i].checked == true){
-      responses.push(preQ12[i].value)
-    }
-  }
-  console.log(responses)
   validateInformation(responses)
   }
 function validateInformation(array){
+  console.log(array)
   // Error
-  if(array.length < 36){
+  if(array.length < 26){
     Swal.fire({
       icon: "error",
       title: "Faltan preguntas por responder",
       confirmButtonColor: "#3085d6",
       footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
     })
-    q6 = []
-    q10 = []
+    q5 = []
+    q9 = []
     responses = []
   }
-  else if(array.length == 36){
+  else if(array.length == 26){
     // Error
     if (array[1] == ""){
       Swal.fire({
@@ -111,56 +111,57 @@ function validateInformation(array){
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
-      q6 = []
-      q10 = []
+      q5 = []
+      q9 = []
       responses = []
     }
-    else if(array[4] == "" || array[6] == "" || array[8] == "" || array[10] == "" || array[12] == "" || array[14] == "" || array[16] == "" || array[18] == "" || array[20] == "" || array[22] == ""){
+    else if(array[4] == "" || array[6] == "" || array[8] == "" || array[10] == "" || array[12] == "" ){
       Swal.fire({
         icon: "error",
-        title: "Faltan datos en pregunta 1 o 2",
+        title: "Faltan datos en pregunta 1",
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
-      q6 = []
-      q10 = []
+      q5 = []
+      q9 = []
       responses = []
     }
-    else if(array[26] == "" || array[27] == "" || array[28] == ""){
+    else if(array[16] == "" || array[17] == "" || array[18] == ""){
       Swal.fire({
         icon: "error",
-        title: "Faltan datos en pregunta 5",
+        title: "Faltan datos en pregunta 4",
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
-      q6 = []
-      q10 = []
+      q5 = []
+      q9 = []
       responses = []
     }
-    else if(array[29] == "" || array[29] == []){
+    else if(array[19] == "" || array[19] == []){
       Swal.fire({
         icon: "error",
-        title: "Faltan contestar la pregunta 6",
+        title: "Faltan contestar la pregunta 5",
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
-      q6 = []
-      q10 = []
+      q5 = []
+      q9 = []
       responses = []
     }
-    else if(array[33] == "" || array[33] == []){
+    else if(array[23] == "" || array[23] == []){
       Swal.fire({
         icon: "error",
-        title: "Faltan contestar la pregunta 10",
+        title: "Faltan contestar la pregunta 9",
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
-      q6 = []
-      q10 = []
+      q5 = []
+      q9 = []
       responses = []
     }
     // Todo en orden
     else {
+      console.log(array)
       Swal.showLoading();
       sendData(array)
     }
@@ -182,28 +183,18 @@ function sendData(array) {
       q1o4Internacional: `${array[11]}`,
       q1o5Nacional: `${array[12]}`,
       q1o5Internacional: `${array[13]}`,
-      q2o1Nacional: `${array[14]}`,
-      q2o1Internacional: `${array[15]}`,
-      q2o2Nacional: `${array[16]}`,
-      q2o2Internacional: `${array[17]}`,
-      q2o3Nacional: `${array[18]}`,
-      q2o3Internacional: `${array[19]}`,
-      q2o4Nacional: `${array[20]}`,
-      q2o4Internacional: `${array[21]}`,
-      q2o5Nacional: `${array[22]}`,
-      q2o5Internacional: `${array[23]}`,
-      q3: `${array[24]}`,
-      q4: `${array[25]}`,
-      q5Local: `${array[26]}`,
-      q5Nacional: `${array[27]}`,
-      q5Exportacion: `${array[28]}`,
-      q6: `${array[29]}`,
-      q7: `${array[30]}`,
-      q8: `${array[31]}`,
-      q9: `${array[32]}`,
-      q10: `${array[33]}`,
-      q11: `${array[34]}`,
-      q12: `${array[35]}`,
+      q2: `${array[14]}`,
+      q3: `${array[15]}`,
+      q4Local: `${array[16]}`,
+      q4Nacional: `${array[17]}`,
+      q4Exportacion: `${array[18]}`,
+      q5: `${array[19]}`,
+      q6: `${array[20]}`,
+      q7: `${array[21]}`,
+      q8: `${array[22]}`,
+      q9: `${array[23]}`,
+      q10: `${array[24]}`,
+      q11: `${array[25]}`,
     });
     // sheet.best
     var config = {
@@ -229,6 +220,9 @@ function sendData(array) {
   
     axios(config)
       .then((res) => {
+        q5 = []
+        q9 = []
+        responses = []
         // console.log(res)
         Swal.fire({
           position: "center",
@@ -331,123 +325,123 @@ function a100EnvasesAmpolletas(input){
     document.getElementById("q2o5Importada").value = total.toFixed(2)
   }
 }
-function disabledInputsQ2(x){
-  if(x.checked == true){
-    document.getElementById("q2o1").value = 0
-    document.getElementById("q2o1Importada").value = 0
-    document.getElementById("q2o2").value = 0
-    document.getElementById("q2o2Importada").value = 0
-    document.getElementById("q2o3").value = 0
-    document.getElementById("q2o3Importada").value = 0
-    document.getElementById("q2o4").value = 0
-    document.getElementById("q2o4Importada").value = 0
-    document.getElementById("q2o5").value = 0
-    document.getElementById("q2o5Importada").value = 0
-    document.getElementById("q2o1").disabled = true
-    document.getElementById("q2o2").disabled = true
-    document.getElementById("q2o3").disabled = true
-    document.getElementById("q2o4").disabled = true
-    document.getElementById("q2o5").disabled = true
+// function disabledInputsQ2(x){
+//   if(x.checked == true){
+//     document.getElementById("q2o1").value = 0
+//     document.getElementById("q2o1Importada").value = 0
+//     document.getElementById("q2o2").value = 0
+//     document.getElementById("q2o2Importada").value = 0
+//     document.getElementById("q2o3").value = 0
+//     document.getElementById("q2o3Importada").value = 0
+//     document.getElementById("q2o4").value = 0
+//     document.getElementById("q2o4Importada").value = 0
+//     document.getElementById("q2o5").value = 0
+//     document.getElementById("q2o5Importada").value = 0
+//     document.getElementById("q2o1").disabled = true
+//     document.getElementById("q2o2").disabled = true
+//     document.getElementById("q2o3").disabled = true
+//     document.getElementById("q2o4").disabled = true
+//     document.getElementById("q2o5").disabled = true
 
-  }
-  else{
-    document.getElementById("q2o1").value = ""
-    document.getElementById("q2o1Importada").value = 100
-    document.getElementById("q2o2").value = ""
-    document.getElementById("q2o2Importada").value = 100
-    document.getElementById("q2o3").value = ""
-    document.getElementById("q2o3Importada").value = 100
-    document.getElementById("q2o4").value = ""
-    document.getElementById("q2o4Importada").value = 100
-    document.getElementById("q2o5").value = ""
-    document.getElementById("q2o5Importada").value = 100
-    document.getElementById("q2o1").disabled = false
-    document.getElementById("q2o2").disabled = false
-    document.getElementById("q2o3").disabled = false
-    document.getElementById("q2o4").disabled = false
-    document.getElementById("q2o5").disabled = false
-  }
-}
-function calcularConsumoNacional(input){
-  q5o2 = document.getElementById("q5o2")
-  q5o3 = document.getElementById("q5o3")
-  if(input.value > 100){
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "¡No puede ser mayor a 100!",
-    });
-    input.value = ""
-    q5o2.value = ""
-    q5o3.value = ""
-  }
-  if(input.value == 100){
-    q5o2.value = 0
-    q5o2.disabled = true
-    q5o3.value = 0
-  }
-  else if(input.value < 0){
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "¡No puede ser menor a 0!",
-    });
-    input.value = ""
-    q5o2.value = ""
-    q5o3.value = ""
-  }
-  else if(input.value > 0 && input.value < 100){
-    total = 100.00
-    if(parseInt(input.value) == total){
-      q5o2.value = ""
-      q5o3.value = "" 
-      q5o2.disabled = true
-    }
-    else{
-      q5o3.value = 0
-      restante = total - parseFloat(input.value)
-      q5o2.value = restante.toFixed(2)
-      q5o2.disabled = false
-    }
-  }
-}
-function calcularConsumoImportado(input){
-  q5o1 = document.getElementById("q5o1")
-  q5o3 = document.getElementById("q5o3")
-  if(parseFloat(input.value) + parseFloat(q5o1.value) == 100){
-    q5o3.value = ""
-  }
-  else{
-    q5o3.value = ""
-    restante = 100.00 - (parseFloat(q5o1.value) + parseFloat(input.value))
-    if (restante > 100.00){
-      input.value = ""
-      q5o3.value = ""
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "¡El total no puede ser mayor a 100!",
-      });
-      input.value = ""
-      q5o1.value = ""
-      q5o3.value = ""
-    }
-    else if(restante < 0){
-      q5o3.value = ""
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "¡El total no puede ser mayor a 100!",
-      });
-      input.value = ""
-      q5o1.value = ""
-      q5o3.value = ""
-    }
-    else if(restante > 0 && restante < 100){
-      q5o3.value = restante.toFixed(2)
-    }
-  }
-}
+//   }
+//   else{
+//     document.getElementById("q2o1").value = ""
+//     document.getElementById("q2o1Importada").value = 100
+//     document.getElementById("q2o2").value = ""
+//     document.getElementById("q2o2Importada").value = 100
+//     document.getElementById("q2o3").value = ""
+//     document.getElementById("q2o3Importada").value = 100
+//     document.getElementById("q2o4").value = ""
+//     document.getElementById("q2o4Importada").value = 100
+//     document.getElementById("q2o5").value = ""
+//     document.getElementById("q2o5Importada").value = 100
+//     document.getElementById("q2o1").disabled = false
+//     document.getElementById("q2o2").disabled = false
+//     document.getElementById("q2o3").disabled = false
+//     document.getElementById("q2o4").disabled = false
+//     document.getElementById("q2o5").disabled = false
+//   }
+// }
+// function calcularConsumoNacional(input){
+//   q5o2 = document.getElementById("q5o2")
+//   q5o3 = document.getElementById("q5o3")
+//   if(input.value > 100){
+//     Swal.fire({
+//       icon: "error",
+//       title: "Oops...",
+//       text: "¡No puede ser mayor a 100!",
+//     });
+//     input.value = ""
+//     q5o2.value = ""
+//     q5o3.value = ""
+//   }
+//   if(input.value == 100){
+//     q5o2.value = 0
+//     q5o2.disabled = true
+//     q5o3.value = 0
+//   }
+//   else if(input.value < 0){
+//     Swal.fire({
+//       icon: "error",
+//       title: "Oops...",
+//       text: "¡No puede ser menor a 0!",
+//     });
+//     input.value = ""
+//     q5o2.value = ""
+//     q5o3.value = ""
+//   }
+//   else if(input.value > 0 && input.value < 100){
+//     total = 100.00
+//     if(parseInt(input.value) == total){
+//       q5o2.value = ""
+//       q5o3.value = "" 
+//       q5o2.disabled = true
+//     }
+//     else{
+//       q5o3.value = 0
+//       restante = total - parseFloat(input.value)
+//       q5o2.value = restante.toFixed(2)
+//       q5o2.disabled = false
+//     }
+//   }
+// }
+// function calcularConsumoImportado(input){
+//   q5o1 = document.getElementById("q5o1")
+//   q5o3 = document.getElementById("q5o3")
+//   if(parseFloat(input.value) + parseFloat(q5o1.value) == 100){
+//     q5o3.value = ""
+//   }
+//   else{
+//     q5o3.value = ""
+//     restante = 100.00 - (parseFloat(q5o1.value) + parseFloat(input.value))
+//     if (restante > 100.00){
+//       input.value = ""
+//       q5o3.value = ""
+//       Swal.fire({
+//         icon: "error",
+//         title: "Oops...",
+//         text: "¡El total no puede ser mayor a 100!",
+//       });
+//       input.value = ""
+//       q5o1.value = ""
+//       q5o3.value = ""
+//     }
+//     else if(restante < 0){
+//       q5o3.value = ""
+//       Swal.fire({
+//         icon: "error",
+//         title: "Oops...",
+//         text: "¡El total no puede ser mayor a 100!",
+//       });
+//       input.value = ""
+//       q5o1.value = ""
+//       q5o3.value = ""
+//     }
+//     else if(restante > 0 && restante < 100){
+//       q5o3.value = restante.toFixed(2)
+//     }
+//   }
+// }
 // function agregarAlArregloQ10(){
 //   q10o1 = document.getElementById("q10o1")
 //   q10o2 = document.getElementById("q10o2")
