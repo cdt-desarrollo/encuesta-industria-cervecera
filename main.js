@@ -8,7 +8,8 @@
 // var q7 = [] 
 // var q8 = [] 
 // var q9 = [] 
-var q10 = [] 
+var q10 = []
+var q6 = []
 // var q11 = [] 
 // var q12 = [] 
 var responses = []
@@ -44,9 +45,10 @@ function getValues(){
   preQ6 = Array.from(document.getElementsByName("q6"))
   for(i = 0; i <= preQ6.length - 1; i++){
     if(preQ6[i].checked == true){
-      responses.push(preQ6[i].value)
+      q6.push(preQ6[i].value)
     }
   }
+  responses.push(q6)
   preQ7 = Array.from(document.getElementsByName("q7"))
   for(i = 0; i <= preQ7.length - 1; i++){
     if(preQ7[i].checked == true){
@@ -96,6 +98,7 @@ function validateInformation(array){
       confirmButtonColor: "#3085d6",
       footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
     })
+    q6 = []
     q10 = []
     responses = []
   }
@@ -108,6 +111,7 @@ function validateInformation(array){
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
+      q6 = []
       q10 = []
       responses = []
     }
@@ -118,6 +122,7 @@ function validateInformation(array){
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
+      q6 = []
       q10 = []
       responses = []
     }
@@ -128,16 +133,29 @@ function validateInformation(array){
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
+      q6 = []
+      q10 = []
+      responses = []
+    }
+    else if(array[29] == "" || array[29] == []){
+      Swal.fire({
+        icon: "error",
+        title: "Faltan contestar la pregunta 6",
+        confirmButtonColor: "#3085d6",
+        footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
+      })
+      q6 = []
       q10 = []
       responses = []
     }
     else if(array[33] == "" || array[33] == []){
       Swal.fire({
         icon: "error",
-        title: "Faltan datos en pregunta 10",
+        title: "Faltan contestar la pregunta 10",
         confirmButtonColor: "#3085d6",
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
+      q6 = []
       q10 = []
       responses = []
     }
@@ -222,7 +240,7 @@ function sendData(array) {
         document.getElementById("deleteDiv").remove();
         let divToInsertHTMLTags = document.getElementById("divToInsertHTMLTags");
         let notification = document.createElement("div");
-        notification.innerHTML = `<h4 class="text-center">Gracias por llenar la encuesta, ya puede cerrar esta ventana.</h4>`;
+        notification.innerHTML = `<h4 class="text-center">Gracias por contestar la encuesta, ya puede cerrar esta ventana.</h4>`;
         divToInsertHTMLTags.insertAdjacentElement("beforeend", notification);
       })
       .catch(async(err) => {
