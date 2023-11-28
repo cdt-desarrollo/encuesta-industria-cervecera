@@ -32,16 +32,18 @@ function getValues(){
       responses.push(preQ2[i].value)
     }
   }
+
+
   preQ3 = Array.from(document.getElementsByName("q3"))
   for(i = 0; i <= preQ3.length - 1; i++){
-    if(preQ3[i].checked == true){
-      responses.push(preQ3[i].value)
-    }
+    responses.push(preQ3[i].value)
   }
   preQ4 = Array.from(document.getElementsByName("q4"))
   for(i = 0; i <= preQ4.length - 1; i++){
     responses.push(preQ4[i].value)
   }
+
+
   preQ5 = Array.from(document.getElementsByName("q5"))
   for(i = 0; i <= preQ5.length - 1; i++){
     if(preQ5[i].checked == true){
