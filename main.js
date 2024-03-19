@@ -32,18 +32,16 @@ function getValues(){
       responses.push(preQ2[i].value)
     }
   }
-
-
   preQ3 = Array.from(document.getElementsByName("q3"))
   for(i = 0; i <= preQ3.length - 1; i++){
-    responses.push(preQ3[i].value)
+    if(preQ3[i].checked == true){
+      responses.push(preQ3[i].value)
+    }
   }
   preQ4 = Array.from(document.getElementsByName("q4"))
   for(i = 0; i <= preQ4.length - 1; i++){
     responses.push(preQ4[i].value)
   }
-
-
   preQ5 = Array.from(document.getElementsByName("q5"))
   for(i = 0; i <= preQ5.length - 1; i++){
     if(preQ5[i].checked == true){
@@ -88,12 +86,17 @@ function getValues(){
       responses.push(preQ11[i].value)
     }
   }
+  preQ12 = Array.from(document.getElementsByName("q12"))
+  for(i = 0; i <= preQ12.length - 1; i++){
+    if(preQ12[i].checked == true){
+      responses.push(preQ12[i].value)
+    }
+  }
   validateInformation(responses)
   }
 function validateInformation(array){
-  console.log(array)
   // Error
-  if(array.length < 26){
+  if(array.length < 27){
     Swal.fire({
       icon: "error",
       title: "Faltan preguntas por responder",
@@ -104,7 +107,8 @@ function validateInformation(array){
     q9 = []
     responses = []
   }
-  else if(array.length == 26){
+  else if(array.length == 27){
+    console.log(array)
     // Error
     if (array[1] == ""){
       Swal.fire({
@@ -197,6 +201,7 @@ function sendData(array) {
       q9: `${array[23]}`,
       q10: `${array[24]}`,
       q11: `${array[25]}`,
+      q12: `${array[26]}`
     });
     // sheet.best
     var config = {
@@ -240,6 +245,9 @@ function sendData(array) {
         divToInsertHTMLTags.insertAdjacentElement("beforeend", notification);
       })
       .catch(async(err) => {
+        q5 = []
+        q9 = []
+        responses = []
         console.log(err)
         // const { value: accept} =
         // await Swal.fire({

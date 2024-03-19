@@ -34,37 +34,34 @@ th{
 /* phones */
 @media only screen and (max-width: 600px ) {
   .container-fluid{
-    width: 400px;
-  }
-  .logos{
-    width: max-content;
+    width: 600px;
   }
 }
 
 /* portrait tables and large phones */
 @media only screen and (min-width: 600px ) {
   .container-fluid{
-    width: 500px;
+    width: 600px;
   }
 }
 
 /* landscape tables  */
 @media only screen and (min-width: 768px ) {
   .container-fluid{
-      width: 600px;
+      width: 768;
   }
 }
 
 /* laptops and desktops */
 @media only screen and (min-width: 992px ) {
   .container-fluid{
-      width: 800px;
+      width: 992;
   }
 }
 
 /* large laptops and desktops */
 @media only screen and (min-width: 1200px ) {
   .container-fluid{
-    width: 1000px;
+    width: 1200px;
   }
 }
