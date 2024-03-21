@@ -9,6 +9,8 @@
 // var q8 = [] 
 // var q9 = [] 
 var q5 = []
+var q6 = []
+var q7 = []
 var q9 = []
 // var q11 = [] 
 // var q12 = [] 
@@ -44,7 +46,7 @@ function getValues(){
   }
   preQ5 = Array.from(document.getElementsByName("q5"))
   for(i = 0; i <= preQ5.length - 1; i++){
-    if(preQ5[i].checked == true){
+    if(preQ5[i].checked == true || preQ5[i].type == "text"){
       q5.push(preQ5[i].value)
     }
   }
@@ -52,15 +54,17 @@ function getValues(){
   preQ6 = Array.from(document.getElementsByName("q6"))
   for(i = 0; i <= preQ6.length - 1; i++){
     if(preQ6[i].checked == true){
-      responses.push(preQ6[i].value)
+      q6.push(preQ6[i].value)
     }
   }
+  responses.push(q6)
   preQ7 = Array.from(document.getElementsByName("q7"))
   for(i = 0; i <= preQ7.length - 1; i++){
-    if(preQ7[i].checked == true){
-      responses.push(preQ7[i].value)
+    if(preQ7[i].checked == true || preQ7[i].type == "text"){
+      q7.push(preQ7[i].value)
     }
   }
+  responses.push(q7)
   preQ8 = Array.from(document.getElementsByName("q8"))
   for(i = 0; i <= preQ8.length - 1; i++){
     if(preQ8[i].checked == true){
@@ -69,17 +73,12 @@ function getValues(){
   }
   preQ9 = Array.from(document.getElementsByName("q9"))
   for(i = 0; i <= preQ9.length - 1; i++){
-    if(preQ9[i].checked == true){
+    if(preQ9[i].checked == true || preQ9[i].type == "text"){
       q9.push(preQ9[i].value)
     }
   }
   responses.push(q9)
-  preQ10 = Array.from(document.getElementsByName("q10"))
-  for(i = 0; i <= preQ10.length - 1; i++){
-    if(preQ10[i].checked == true){
-      responses.push(preQ10[i].value)
-    }
-  }
+  responses.push(document.getElementById("q10o1").value)
   preQ11 = Array.from(document.getElementsByName("q11"))
   for(i = 0; i <= preQ11.length - 1; i++){
     if(preQ11[i].checked == true){
@@ -92,11 +91,30 @@ function getValues(){
       responses.push(preQ12[i].value)
     }
   }
+  preQ13 = Array.from(document.getElementsByName("q13"))
+  for(i = 0; i <= preQ13.length - 1; i++){
+    if(preQ13[i].checked == true){
+      responses.push(preQ13[i].value)
+      break
+    }
+    else if(preQ13[i].type == "text"){
+      if(preQ13[i].value != ""){
+        responses.push(preQ13[i].value)
+        break
+      }
+    } 
+  }
+  preQ14 = Array.from(document.getElementsByName("q14"))
+  for(i = 0; i <= preQ14.length - 1; i++){
+    if(preQ14[i].checked == true){
+      responses.push(preQ14[i].value)
+    }
+  }
   validateInformation(responses)
   }
 function validateInformation(array){
   // Error
-  if(array.length < 27){
+  if(array.length < 29){
     Swal.fire({
       icon: "error",
       title: "Faltan preguntas por responder",
@@ -104,11 +122,12 @@ function validateInformation(array){
       footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
     })
     q5 = []
+    q6 = []
+    q7 = [] 
     q9 = []
     responses = []
   }
-  else if(array.length == 27){
-    console.log(array)
+  else if(array.length == 29){
     // Error
     if (array[1] == ""){
       Swal.fire({
@@ -118,6 +137,8 @@ function validateInformation(array){
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q5 = []
+      q6 = []
+      q7 = []
       q9 = []
       responses = []
     }
@@ -129,6 +150,8 @@ function validateInformation(array){
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q5 = []
+      q6 = []
+      q7 = []
       q9 = []
       responses = []
     }
@@ -140,6 +163,8 @@ function validateInformation(array){
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q5 = []
+      q6 = []
+      q7 = []
       q9 = []
       responses = []
     }
@@ -151,6 +176,8 @@ function validateInformation(array){
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q5 = []
+      q6 = []
+      q7 = []
       q9 = []
       responses = []
     }
@@ -162,6 +189,21 @@ function validateInformation(array){
         footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
       })
       q5 = []
+      q6 = []
+      q7 = []
+      q9 = []
+      responses = []
+    }
+    else if(array[24] == "" || array[24] == []){
+      Swal.fire({
+        icon: "error",
+        title: "Faltan contestar la pregunta 10",
+        confirmButtonColor: "#3085d6",
+        footer: '<a>¿Problemas al contestar la encuesta?, llama al +526646863952</a>'
+      })
+      q5 = []
+      q6 = []
+      q7 = []
       q9 = []
       responses = []
     }
@@ -201,7 +243,9 @@ function sendData(array) {
       q9: `${array[23]}`,
       q10: `${array[24]}`,
       q11: `${array[25]}`,
-      q12: `${array[26]}`
+      q12: `${array[26]}`,
+      q13: `${array[27]}`,
+      q14: `${array[28]}`
     });
     // sheet.best
     var config = {
@@ -213,21 +257,11 @@ function sendData(array) {
       },
       data: data,
     };
-    // restdb.io
-    // var config = {
-    //   method: "post",
-    //   url: "https://responses-5389.restdb.io/rest/responses",
-    //   // mode: "cors",
-    //   headers: {
-    //     "x-apikey": "63ea9066478852088da681dd",
-    //     "Content-Type": "application/json",
-    //   },
-    //   data: data,
-    // };
-  
     axios(config)
       .then((res) => {
         q5 = []
+        q6 = []
+        q7 = [] 
         q9 = []
         responses = []
         // console.log(res)
@@ -246,19 +280,11 @@ function sendData(array) {
       })
       .catch(async(err) => {
         q5 = []
+        q6 = []
+        q7 = []
         q9 = []
         responses = []
         console.log(err)
-        // const { value: accept} =
-        // await Swal.fire({
-        //   icon: "error",
-        //   title: "¡Algo salió mal!",
-        //   text: "Recuerda que tu nombre es obligatorio",
-        //   confirmButtonColor: "#3085d6",
-        // })
-        // if(accept){
-        //   location.reload()
-        // };
         Swal.fire({
           icon: "error",
           title: "Error",
@@ -335,150 +361,14 @@ function a100EnvasesAmpolletas(input){
     document.getElementById("q2o5Importada").value = total.toFixed(2)
   }
 }
-// function disabledInputsQ2(x){
-//   if(x.checked == true){
-//     document.getElementById("q2o1").value = 0
-//     document.getElementById("q2o1Importada").value = 0
-//     document.getElementById("q2o2").value = 0
-//     document.getElementById("q2o2Importada").value = 0
-//     document.getElementById("q2o3").value = 0
-//     document.getElementById("q2o3Importada").value = 0
-//     document.getElementById("q2o4").value = 0
-//     document.getElementById("q2o4Importada").value = 0
-//     document.getElementById("q2o5").value = 0
-//     document.getElementById("q2o5Importada").value = 0
-//     document.getElementById("q2o1").disabled = true
-//     document.getElementById("q2o2").disabled = true
-//     document.getElementById("q2o3").disabled = true
-//     document.getElementById("q2o4").disabled = true
-//     document.getElementById("q2o5").disabled = true
-
-//   }
-//   else{
-//     document.getElementById("q2o1").value = ""
-//     document.getElementById("q2o1Importada").value = 100
-//     document.getElementById("q2o2").value = ""
-//     document.getElementById("q2o2Importada").value = 100
-//     document.getElementById("q2o3").value = ""
-//     document.getElementById("q2o3Importada").value = 100
-//     document.getElementById("q2o4").value = ""
-//     document.getElementById("q2o4Importada").value = 100
-//     document.getElementById("q2o5").value = ""
-//     document.getElementById("q2o5Importada").value = 100
-//     document.getElementById("q2o1").disabled = false
-//     document.getElementById("q2o2").disabled = false
-//     document.getElementById("q2o3").disabled = false
-//     document.getElementById("q2o4").disabled = false
-//     document.getElementById("q2o5").disabled = false
-//   }
-// }
-// function calcularConsumoNacional(input){
-//   q5o2 = document.getElementById("q5o2")
-//   q5o3 = document.getElementById("q5o3")
-//   if(input.value > 100){
-//     Swal.fire({
-//       icon: "error",
-//       title: "Oops...",
-//       text: "¡No puede ser mayor a 100!",
-//     });
-//     input.value = ""
-//     q5o2.value = ""
-//     q5o3.value = ""
-//   }
-//   if(input.value == 100){
-//     q5o2.value = 0
-//     q5o2.disabled = true
-//     q5o3.value = 0
-//   }
-//   else if(input.value < 0){
-//     Swal.fire({
-//       icon: "error",
-//       title: "Oops...",
-//       text: "¡No puede ser menor a 0!",
-//     });
-//     input.value = ""
-//     q5o2.value = ""
-//     q5o3.value = ""
-//   }
-//   else if(input.value > 0 && input.value < 100){
-//     total = 100.00
-//     if(parseInt(input.value) == total){
-//       q5o2.value = ""
-//       q5o3.value = "" 
-//       q5o2.disabled = true
-//     }
-//     else{
-//       q5o3.value = 0
-//       restante = total - parseFloat(input.value)
-//       q5o2.value = restante.toFixed(2)
-//       q5o2.disabled = false
-//     }
-//   }
-// }
-// function calcularConsumoImportado(input){
-//   q5o1 = document.getElementById("q5o1")
-//   q5o3 = document.getElementById("q5o3")
-//   if(parseFloat(input.value) + parseFloat(q5o1.value) == 100){
-//     q5o3.value = ""
-//   }
-//   else{
-//     q5o3.value = ""
-//     restante = 100.00 - (parseFloat(q5o1.value) + parseFloat(input.value))
-//     if (restante > 100.00){
-//       input.value = ""
-//       q5o3.value = ""
-//       Swal.fire({
-//         icon: "error",
-//         title: "Oops...",
-//         text: "¡El total no puede ser mayor a 100!",
-//       });
-//       input.value = ""
-//       q5o1.value = ""
-//       q5o3.value = ""
-//     }
-//     else if(restante < 0){
-//       q5o3.value = ""
-//       Swal.fire({
-//         icon: "error",
-//         title: "Oops...",
-//         text: "¡El total no puede ser mayor a 100!",
-//       });
-//       input.value = ""
-//       q5o1.value = ""
-//       q5o3.value = ""
-//     }
-//     else if(restante > 0 && restante < 100){
-//       q5o3.value = restante.toFixed(2)
-//     }
-//   }
-// }
-// function agregarAlArregloQ10(){
-//   q10o1 = document.getElementById("q10o1")
-//   q10o2 = document.getElementById("q10o2")
-//   q10o3 = document.getElementById("q10o3")
-//   q10o4 = document.getElementById("q10o4")
-//   let arrayQ10 =[]
-//   for(let i = 0; i<=3; i++){
-//     if(i == 0){
-//       if(q10o1.checked == true && i == 0){
-//         arrayQ10.push(q10o1.value)
-//       }
-//     }
-//     else if(i == 1){
-//       if(q10o2.checked == true && i == 1){
-//         arrayQ10.push(q10o2.value)
-//       }
-//     }
-//     else if(i == 2){
-//       if(q10o3.checked == true && i == 2){
-//         arrayQ10.push(q10o3.value)
-//       }
-//     }
-//     else if(i == 3){
-//       if(q10o4.checked == true && i == 3){
-//         arrayQ10.push(q10o4.value)
-//       }
-//     }
-//   }
-//   q10 = arrayQ10.toString()
-// }
+function cleanInputTextQ13(){
+  document.getElementById("q13o4").value = ""
+}
+function uncheckOptionQ13(){
+  let preQ13 = Array.from(document.getElementsByName("q13"))
+  for(i = 0; i <= preQ13.length - 1 ; i++){
+    if(preQ13[i].type == "radio"){
+      preQ13[i].checked = false
+    }
+  }
+}

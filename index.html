@@ -107,97 +107,64 @@
           </tbody>
         </table>
       </div>
-      <!-- <div class="q2">
-        <h5>*2.- De los siguientes insumos para la venta, ¿Cuál es el porcentaje de origen de cada uno?</h5>
-        <span>Los recuadros con la leyenda "Obligatorio" necesariamente llevan número.</span> <br>
-        <span>El recuadro "Internacional" realiza un cálculo en base al dato proporcionado en tu insumo nacional.</span>
-        <div style="margin-bottom: 8px;">
-          <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" onclick="disabledInputsQ2(this)">
-          <label class="btn btn-outline-primary" for="btn-check-outlined">No tengo ventas</label><br>
-        </div>
-        <table class="table table-striped table-bordered">
-          <tbody>
-            <tr>
-              <td></td>
-              <th>Nacional (%)</th>
-              <th>Importada (%)</th>
-            </tr>
-            <tr>
-              <th>*Malta</th>
-              <td><input maxlength="3" type="number" name="q2" id="q2o1" step="0.1" placeholder="Obligatorio" oninput="a100Malta(this)">
-              </td>
-              <td><input type="number" name="q2" value="100" id="q2o1Importada" step="0.1" disabled></td>
-            </tr>
-            <tr>
-              <th>*Cebada</th>
-              <td><input maxlength="3" type="number" name="q2" id="q2o2" step="0.1" placeholder="Obligatorio" oninput="a100Cebada(this)"></td>
-              <td><input type="number" name="q2" value="100" id="q2o2Importada" step="0.1" disabled></td>
-            </tr>
-            <tr>
-              <th>*Féculas, almidones o sus derivados</th>
-              <td><input maxlength="3" type="number" name="q2" id="q2o3" step="0.1"placeholder="Obligatorio"  oninput="a100FeculasAlmidonesDerivados(this)"></td>
-              <td><input type="number" name="q2" value="100" id="q2o3Importada" disabled></td>
-            </tr>
-            <tr>
-              <th>*Maquinaria y equipo</th>
-              <td><input maxlength="3" type="number" name="q2" id="q2o4"
-             step="0.1" placeholder="Obligatorio" oninput="a100MaquinariaEquipo(this)"></td>
-              <td><input type="number" name="q2" value="100" id="q2o4Importada" step="0.1" disabled></td>
-            </tr>
-            <tr>
-              <th>*Envases y ampolletas de vidrio</th>
-              <td><input maxlength="3" type="number" name="q2" id="q2o5" step="0.1" placeholder="Obligatorio" oninput="a100EnvasesAmpolletas(this)"></td>
-              <td><input type="number" name="q2" value="100" id="q2o5Importada" step="0.1" disabled></td>
-            </tr>
-          </tbody>
-        </table>
-      </div> -->
       <div class="q2">
         <h5>*2. ¿Cuántos litros de cerveza produjo mensualmente?</h5>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" value="1000-2000" id="q2o1">
+          <input class="form-check-input" type="radio" name="q2" value="0-500" id="q2o1">
           <label class="form-check-label">
-            1,000 - 2,000 lt.
+            0 - 500 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" value="2001-3000" id="q2o2">
+          <input class="form-check-input" type="radio" name="q2" value="501-1000" id="q2o2">
+          <label class="form-check-label">
+            501 - 1,000 lt
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="1001-2000" id="q2o3">
+          <label class="form-check-label">
+            1,001 - 2,000 lt.
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q2" value="2001-3000" id="q2o4">
           <label class="form-check-label">
             2,001 - 3,000 lt.
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" value="3001-4000" id="q2o3">
+          <input class="form-check-input" type="radio" name="q2" value="3001-4000" id="q2o5">
           <label class="form-check-label">
             3,001 - 4,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" value="4001-5000" id="q2o4">
+          <input class="form-check-input" type="radio" name="q2" value="4001-5000" id="q2o6">
           <label class="form-check-label">
             4,001 - 5,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" value="5001-6000" id="q2o5">
+          <input class="form-check-input" type="radio" name="q2" value="5001-6000" id="q2o7">
           <label class="form-check-label">
             5,001 - 6,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" value="6001-7000" id="q2o6">
+          <input class="form-check-input" type="radio" name="q2" value="6001-7000" id="q2o8">
           <label class="form-check-label">
             6,001 - 7,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" value="7001-8000" id="q2o7">
+          <input class="form-check-input" type="radio" name="q2" value="7001-8000" id="q2o9">
           <label class="form-check-label">
             7,001 - 8,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" value="8001ymas" id="q2o8">
+          <input class="form-check-input" type="radio" name="q2" value="8001ymas" id="q2o10">
           <label class="form-check-label">
             8,001 lt y más
           </label>
@@ -206,49 +173,61 @@
       <div class="q3">
         <h5>*3. ¿Cuántos litros de cerveza vendió mensualmente?</h5>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" value="1000-2000" id="q3o1">
+          <input class="form-check-input" type="radio" name="q3" value="0-500" id="q3o1">
           <label class="form-check-label">
-            1,000 - 2,000 lt.
+            0 - 500 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" value="2001-3000" id="q3o2">
+          <input class="form-check-input" type="radio" name="q3" value="501-1000" id="q3o2">
+          <label class="form-check-label">
+            501 - 1,000 lt
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="1001-2000" id="q3o3">
+          <label class="form-check-label">
+            1,001 - 2,000 lt.
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q3" value="2001-3000" id="q3o4">
           <label class="form-check-label">
             2,001 - 3,000 lt.
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" value="3001-4000" id="q3o3">
+          <input class="form-check-input" type="radio" name="q3" value="3001-4000" id="q3o5">
           <label class="form-check-label">
             3,001 - 4,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" value="4001-5000" id="q3o4">
+          <input class="form-check-input" type="radio" name="q3" value="4001-5000" id="q3o6">
           <label class="form-check-label">
             4,001 - 5,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" value="5001-6000" id="q3o5">
+          <input class="form-check-input" type="radio" name="q3" value="5001-6000" id="q3o7">
           <label class="form-check-label">
             5,001 - 6,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" value="6001-7000" id="q3o6">
+          <input class="form-check-input" type="radio" name="q3" value="6001-7000" id="q3o8">
           <label class="form-check-label">
             6,001 - 7,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" value="7001-8000" id="q3o7">
+          <input class="form-check-input" type="radio" name="q3" value="7001-8000" id="q3o9">
           <label class="form-check-label">
             7,001 - 8,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" value="8001ymas" id="q3o8">
+          <input class="form-check-input" type="radio" name="q3" value="8001ymas" id="q3o10">
           <label class="form-check-label">
             8,001 lt y más
           </label>
@@ -299,35 +278,41 @@
             Barril
           </label>
         </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            Otros:
+          </label>
+          <input class="form-text-input" type="text" name="q5" value="" id="q5o5">
+        </div>
       </div>
       <div class="q6">
         <h5>*6. ¿Cuáles fueron las principales barreras de entrada que se presentaron en la industria para nuevas PYME´s?</h5>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q6" value="diferenciacionproducto" id="q6o1">
+          <input class="form-check-input" type="checkbox" name="q6" value="diferenciacionproducto" id="q6o1">
           <label class="form-check-label">
             Diferenciación del producto por parte de las empresas existentes
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q6" value="lealtadclientes" id="q6o2">
+          <input class="form-check-input" type="checkbox" name="q6" value="lealtadclientes" id="q6o2">
           <label class="form-check-label">
             Lealtad de los clientes
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q6" value="diferenciaprecios" id="q6o3">
+          <input class="form-check-input" type="checkbox" name="q6" value="diferenciaprecios" id="q6o3">
           <label class="form-check-label">
             Diferencia en los precios
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q6" value="dificultadcanalesdistribucion" id="q6o4">
+          <input class="form-check-input" type="checkbox" name="q6" value="dificultadcanalesdistribucion" id="q6o4">
           <label class="form-check-label">
             Dificultad en el acceso a canales de distribución
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q6" value="costo" id="q6o5">
+          <input class="form-check-input" type="checkbox" name="q6" value="costo" id="q6o5">
           <label class="form-check-label">
             Costos
           </label>
@@ -336,28 +321,34 @@
       <div class="q7">
         <h5>*7. ¿Cuáles fueron los mayores problemas que has tenido en el proceso de creación y desarrollo de tu PYME?</h5>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q7" value="legales" id="q7o1">
+          <input class="form-check-input" type="checkbox" name="q7" value="legales" id="q7o1">
           <label class="form-check-label">
             Legales
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q7" value="sanitarios" id="q7o2">
+          <input class="form-check-input" type="checkbox" name="q7" value="sanitarios" id="q7o2">
           <label class="form-check-label">
             Sanitarios
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q7" value="infraestructura" id="q7o3">
+          <input class="form-check-input" type="checkbox" name="q7" value="infraestructura" id="q7o3">
           <label class="form-check-label">
             Infraestructura
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q7" value="contribuciontributaria" id="q7o4">
+          <input class="form-check-input" type="checkbox" name="q7" value="contribuciontributaria" id="q7o4">
           <label class="form-check-label">
             Contribución tributaria
           </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            Otros:
+          </label>
+          <input class="form-text-input" type="text" name="q7" value="" id="q7o5">
         </div>
       </div>
       <div class="q8">
@@ -388,7 +379,7 @@
         </div>
       </div>
       <div class="q9">
-        <h5>*9. De las siguientes opciones indique, ¿Cuál fue su principal comprador para la venta de cervezas? (Puede seleccionar más de una opción)</h5>
+        <h5>*9. De las siguientes opciones indique, ¿Cuáles fueron sus principales compradores para la venta de cervezas?</h5>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="q9" value="restaurantes" id="q9o1">
           <label class="form-check-label">
@@ -413,69 +404,76 @@
             Autoservicios
           </label>
         </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            Otros:
+          </label>
+          <input class="form-text-input" type="text" name="q9" value="" id="q9o5">
+        </div>
       </div>
       <div class="q10">
-        <h5>*10. Durante el 2023, ¿participó en ferias, expos o festivales de Cerveza Artesanal?</h5>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q10" value="si" id="q10o1">
-          <label class="form-check-label">
-            Si
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q10" value="no" id="q10o2">
-          <label class="form-check-label">
-            No
-          </label>
-        </div>
+        <h5>*10. Durante el 2023, ¿en cuántas ferias, expos o festivales de Cerveza Artesanal participaste? (solo números)</h5>
+        <input style="width: 100%;" type="number" name="q10" id="q10o1">
       </div>
       <h4 style="padding-top: 40px; padding-bottom: 0px;">Panorama 2024</h4>
       <div class="q11">
         <h5>*11. Al inicio del 2024, ¿Cuántos litros de cerveza produjeron mensualmente?</h5>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q11" value="1000-2000" id="q11o1">
+          <input class="form-check-input" type="radio" name="q11" value="0-500" id="q11o1">
           <label class="form-check-label">
-            1,000 - 2,000 lt.
+            0 - 500 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q11" value="2001-3000" id="q11o2">
+          <input class="form-check-input" type="radio" name="q11" value="501-1000" id="q11o2">
+          <label class="form-check-label">
+            501 - 1,000 lt
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q11" value="1001-2000" id="q11o3">
+          <label class="form-check-label">
+            1,001 - 2,000 lt.
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q11" value="2001-3000" id="q11o4">
           <label class="form-check-label">
             2,001 - 3,000 lt.
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q11" value="3001-4000" id="q11o3">
+          <input class="form-check-input" type="radio" name="q11" value="3001-4000" id="q11o5">
           <label class="form-check-label">
             3,001 - 4,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q11" value="4001-5000" id="q11o4">
+          <input class="form-check-input" type="radio" name="q11" value="4001-5000" id="q11o6">
           <label class="form-check-label">
             4,001 - 5,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q11" value="5001-6000" id="q11o5">
+          <input class="form-check-input" type="radio" name="q11" value="5001-6000" id="q11o7">
           <label class="form-check-label">
             5,001 - 6,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q11" value="6001-7000" id="q11o6">
+          <input class="form-check-input" type="radio" name="q11" value="6001-7000" id="q11o8">
           <label class="form-check-label">
             6,001 - 7,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q11" value="7001-8000" id="q11o7">
+          <input class="form-check-input" type="radio" name="q11" value="7001-8000" id="q11o9">
           <label class="form-check-label">
             7,001 - 8,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q11" value="8001ymas" id="q11o8">
+          <input class="form-check-input" type="radio" name="q11" value="8001ymas" id="q11o10">
           <label class="form-check-label">
             8,001 lt y más
           </label>
@@ -484,51 +482,118 @@
       <div class="q12">
         <h5>*12. Al inicio del 2024, ¿Cuántos litros de cerveza vendieron mensualmente?</h5>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q12" value="1000-2000" id="q12o1">
+          <input class="form-check-input" type="radio" name="q12" value="0-500" id="q12o1">
           <label class="form-check-label">
-            1,000 - 2,000 lt.
+            0 - 500 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q12" value="2001-3000" id="q12o2">
+          <input class="form-check-input" type="radio" name="q12" value="501-1000" id="q12o2">
+          <label class="form-check-label">
+            501 - 1,000 lt
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q12" value="1001-2000" id="q12o3">
+          <label class="form-check-label">
+            1,001 - 2,000 lt.
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q12" value="2001-3000" id="q12o4">
           <label class="form-check-label">
             2,001 - 3,000 lt.
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q12" value="3001-4000" id="q12o3">
+          <input class="form-check-input" type="radio" name="q12" value="3001-4000" id="q12o5">
           <label class="form-check-label">
             3,001 - 4,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q12" value="4001-5000" id="q12o4">
+          <input class="form-check-input" type="radio" name="q12" value="4001-5000" id="q12o6">
           <label class="form-check-label">
             4,001 - 5,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q12" value="5001-6000" id="q12o5">
+          <input class="form-check-input" type="radio" name="q12" value="5001-6000" id="q12o7">
           <label class="form-check-label">
             5,001 - 6,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q12" value="6001-7000" id="q12o6">
+          <input class="form-check-input" type="radio" name="q12" value="6001-7000" id="q12o8">
           <label class="form-check-label">
             6,001 - 7,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q12" value="7001-8000" id="q12o7">
+          <input class="form-check-input" type="radio" name="q12" value="7001-8000" id="q12o8">
           <label class="form-check-label">
             7,001 - 8,000 lt
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="q12" value="8001ymas" id="q12o8">
+          <input class="form-check-input" type="radio" name="q12" value="8001ymas" id="q12o10">
           <label class="form-check-label">
             8,001 lt y más
+          </label>
+        </div>
+      </div>
+      <div class="q13">
+        <h5>*13. ¿Qué considera que lo distingue de otras empresas cerveceras?</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q13" value="0-500" id="q13o1" onclick="cleanInputTextQ13()">
+          <label class="form-check-label">
+            0 - 500 lt
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q13" value="501-1000" id="q13o2" onclick="cleanInputTextQ13()">
+          <label class="form-check-label">
+            501 - 1,000 lt
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q13" value="1001-2000" id="q13o3" onclick="cleanInputTextQ13()">
+          <label class="form-check-label">
+            1,001 - 2,000 lt.
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            Otros
+          </label>
+          <input class="form-check-text" type="text" name="q13"id="q13o4" onchange="uncheckOptionQ13()">
+
+        </div>
+      </div>
+      <div class="q14">
+        <h5>*14. ¿Cuál fue el número de colaboradores que se encontró laborando en su negocio?</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q14" value="redesSociales" id="q14o1">
+          <label class="form-check-label">
+            Redes sociales
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q14" value="mediosTradicionales" id="q14o2">
+          <label class="form-check-label">
+            Medios tradicionales (Radio, Televisión, Periódico)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q14" value="referenciasDeClientes" id="q14o3">
+          <label class="form-check-label">
+            Referencias de clientes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q14" value="noHacePromocion+" id="q14o4">
+          <label class="form-check-label">
+            No hace promoción
           </label>
         </div>
       </div>
