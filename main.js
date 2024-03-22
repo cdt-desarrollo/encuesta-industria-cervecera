@@ -110,11 +110,17 @@ function getValues(){
       responses.push(preQ14[i].value)
     }
   }
+  preQ15 = Array.from(document.getElementsByName("q15"))
+  for(i = 0; i <= preQ15.length - 1; i++){
+    if(preQ15[i].checked == true){
+      responses.push(preQ15[i].value)
+    }
+  }
   validateInformation(responses)
   }
 function validateInformation(array){
   // Error
-  if(array.length < 29){
+  if(array.length < 30){
     Swal.fire({
       icon: "error",
       title: "Faltan preguntas por responder",
@@ -127,7 +133,7 @@ function validateInformation(array){
     q9 = []
     responses = []
   }
-  else if(array.length == 29){
+  else if(array.length == 30){
     // Error
     if (array[1] == ""){
       Swal.fire({
@@ -245,7 +251,8 @@ function sendData(array) {
       q11: `${array[25]}`,
       q12: `${array[26]}`,
       q13: `${array[27]}`,
-      q14: `${array[28]}`
+      q14: `${array[28]}`,
+      q15: `${array[29]}`
     });
     // sheet.best
     var config = {
